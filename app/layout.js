@@ -19,7 +19,7 @@ const karla = Karla({
 });
 
 export const viewport = {
-  themeColor: "#1F6F63",
+  themeColor: "#0E6BA8",
 };
 
 export const metadata = {
@@ -30,7 +30,6 @@ export const metadata = {
     title: "PaoClean — Limpieza confiable en Miami",
     description: "Limpieza residencial, de oficinas y post-construcción. Trato cercano, resultados que se notan.",
     type: "website",
-    // PENDIENTE: agregar /public/og-image.jpg (1200x630) con una foto real
     images: ["/og-image.jpg"],
   },
 };

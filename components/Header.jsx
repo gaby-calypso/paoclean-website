@@ -10,6 +10,14 @@ export default function Header() {
 
   const closeNav = () => setNavOpen(false);
 
+  const navItems = [
+    { href: "#servicios", label: t("nav.services") },
+    { href: "#sobre-pao", label: t("nav.about") },
+    { href: "#resultados", label: t("nav.results") },
+    { href: "#redes", label: t("nav.social") },
+    { href: "#contacto", label: t("nav.contact") },
+  ];
+
   return (
     <header className={`site-header${navOpen ? " nav-open" : ""}`}>
       <div className="header-inner">
@@ -17,11 +25,12 @@ export default function Header() {
           {BUSINESS.name}
         </a>
 
-        <nav className="main-nav">
-          <a href="#servicios" onClick={closeNav}>{t("nav.services")}</a>
-          <a href="#sobre-pao" onClick={closeNav}>{t("nav.about")}</a>
-          <a href="#resultados" onClick={closeNav}>{t("nav.results")}</a>
-          <a href="#contacto" onClick={closeNav}>{t("nav.contact")}</a>
+        <nav className="main-nav pill-nav">
+          {navItems.map((item) => (
+            <a key={item.href} href={item.href} onClick={closeNav}>
+              {item.label}
+            </a>
+          ))}
         </nav>
 
         <div className="header-actions">

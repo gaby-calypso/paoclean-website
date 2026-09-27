@@ -2,6 +2,7 @@
 
 import { useRef, useState, useCallback, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
+import { BeforeScene, AfterScene } from "@/components/Illustrations";
 
 export default function Results() {
   const { t } = useLanguage();
@@ -57,20 +58,22 @@ export default function Results() {
       <h2>{t("results.title")}</h2>
       <p className="results-sub">{t("results.subtitle")}</p>
 
-      {/* PENDIENTE: reemplazar los dos bloques de abajo por fotos reales de antes/después
-          (agregar backgroundImage en línea o cambiar por <img>) */}
       <div
         className="ba-slider"
         ref={sliderRef}
         onMouseDown={startDrag}
         onTouchStart={startDrag}
       >
-        <div className="ba-side ba-after" data-label={t("results.after_alt")}></div>
+        <div className="ba-side ba-after" data-label={t("results.after_alt")}>
+          <AfterScene />
+        </div>
         <div
           className="ba-side ba-before"
           data-label={t("results.before_alt")}
           style={{ clipPath: `inset(0 ${100 - pct}% 0 0)` }}
-        ></div>
+        >
+          <BeforeScene />
+        </div>
         <div
           className="ba-handle"
           style={{ left: `${pct}%` }}

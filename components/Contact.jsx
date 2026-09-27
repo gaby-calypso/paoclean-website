@@ -3,6 +3,7 @@
 import { useLanguage } from "@/context/LanguageContext";
 import { useToast } from "@/context/ToastContext";
 import { BUSINESS } from "@/lib/business";
+import SocialLinks from "@/components/SocialLinks";
 
 function downloadVCard() {
   const vcard = [
@@ -88,6 +89,7 @@ export default function Contact() {
         <div className="contact-utility">
           <button className="link-btn" onClick={handleSave}>{t("contact.save")}</button>
           <button className="link-btn" onClick={handleShare}>{t("contact.share")}</button>
+          <SocialLinks variant="icons" />
         </div>
       </div>
     </section>

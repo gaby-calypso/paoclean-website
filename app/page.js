@@ -6,6 +6,7 @@ import Services from "@/components/Services";
 import Process from "@/components/Process";
 import Results from "@/components/Results";
 import Testimonials from "@/components/Testimonials";
+import Social from "@/components/Social";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -16,11 +17,12 @@ export default function Home() {
       <main id="top">
         <Hero />
         <TrustStrip />
-        <About />
         <Services />
+        <About />
         <Process />
         <Results />
         <Testimonials />
+        <Social />
         <Contact />
       </main>
       <Footer />
