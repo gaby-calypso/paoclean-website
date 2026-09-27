@@ -2,8 +2,15 @@
 
 import { useEffect, useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
-import { isOpenNow } from "@/lib/business";
-import { HeroScene, PortraitAvatar } from "@/components/Illustrations";
+import { isOpenNow, RATING } from "@/lib/business";
+
+function Star() {
+  return (
+    <svg viewBox="0 0 20 20" width="15" height="15" fill="currentColor">
+      <path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L10 14.9l-5.2 2.8 1-5.9-4.3-4.1 5.9-.8L10 1.5z" />
+    </svg>
+  );
+}
 
 export default function Hero() {
   const { t, whatsappUrl } = useLanguage();
@@ -44,23 +51,22 @@ export default function Hero() {
         </div>
 
         <div className="hero-media">
-          <div className="photo-placeholder hero-photo" data-label={t("hero.photo_alt")}>
-            <HeroScene />
+          <div className="hero-photo-frame">
+            <img src="/team-hero.jpg" alt={t("hero.photo_alt")} className="real-photo" />
           </div>
 
-          <div className="profile-badge">
-            <div className="profile-badge-photo">
-              <div className="photo-placeholder photo-placeholder--avatar" data-label="">
-                <PortraitAvatar />
-              </div>
-            </div>
+          <div className="rating-badge">
+            <span className="rating-badge-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3Z" />
+              </svg>
+            </span>
             <div>
-              <p className="profile-badge-name">{t("hero.card_name")} — {t("hero.card_role")}</p>
-              <p className="profile-badge-check">
-                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2.4">
-                  <path d="M20 6 9 17l-5-5" />
-                </svg>
-                {t("hero.card_badge")}
+              <div className="rating-stars" aria-hidden="true">
+                <Star /><Star /><Star /><Star /><Star />
+              </div>
+              <p className="rating-text">
+                {RATING.score} · {RATING.count} {t("hero.rating_reviews")}
               </p>
             </div>
           </div>

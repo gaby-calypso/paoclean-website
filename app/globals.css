@@ -7,15 +7,15 @@
   --ink: #14232E;
   --ink-soft: #56636E;
   --paper: #FFFFFF;
-  --paper-soft: #F1F6F8;
-  --blue: #0E6BA8;
-  --blue-deep: #094F7D;
+  --paper-soft: #CFE0F3;
+  --blue: #0C4A93;
+  --blue-deep: #082F63;
   --blue-tint: #E7F1F7;
   --amber: #F2A93B;
   --amber-deep: #D98F1E;
   --line: #DCE6EA;
 
-  --max-w: 1180px;
+  --max-w: 1320px;
   --gutter: clamp(1.25rem, 4vw, 4rem);
   --edge: max(var(--gutter), calc((100% - var(--max-w)) / 2));
   --radius-sm: 4px;
@@ -200,7 +200,7 @@ section {
 .nav-toggle span { width: 22px; height: 2px; background: var(--ink); }
 
 /* ==========================================================================
-   Hero — foto grande + insignia de confianza superpuesta
+   Hero — foto grande + insignia de calificación superpuesta
    ========================================================================== */
 .hero {
   background: var(--paper-soft);
@@ -240,12 +240,24 @@ section {
 .hero-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; margin: 1.6rem 0 1rem; }
 
 .hero-media { position: relative; }
-.hero-photo {
-  aspect-ratio: 4 / 5;
+
+.hero-photo-frame {
+  aspect-ratio: 5 / 4;
   border-radius: var(--radius-md);
+  overflow: hidden;
 }
 
-.profile-badge {
+.real-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.profile-badge-photo .real-photo { object-position: top center; }
+
+/* Insignia de calificación superpuesta sobre la foto */
+.rating-badge {
   position: absolute;
   left: 1rem;
   right: 1rem;
@@ -258,20 +270,16 @@ section {
   gap: 0.8rem;
   box-shadow: 0 16px 32px -12px rgba(20, 35, 46, 0.28);
 }
-.profile-badge-photo {
+.rating-badge-icon {
   width: 42px; height: 42px;
   border-radius: 50%;
-  overflow: hidden;
+  background: var(--blue-tint);
+  color: var(--blue-deep);
+  display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
-.profile-badge-photo .photo-placeholder { min-height: 0; border-radius: 50%; }
-.profile-badge-photo .photo-placeholder::after { display: none; }
-.profile-badge-name { font-weight: 700; font-size: 0.9rem; color: var(--ink); margin: 0 0 0.15rem; }
-.profile-badge-check {
-  display: flex; align-items: center; gap: 0.35em;
-  font-size: 0.78rem; font-weight: 600; color: var(--blue-deep);
-  margin: 0;
-}
+.rating-stars { display: flex; gap: 2px; color: var(--blue); margin-bottom: 0.2rem; }
+.rating-text { font-weight: 700; font-size: 0.92rem; color: var(--ink); margin: 0; }
 
 /* Photo placeholders (quitar cuando haya fotos reales) ------------------- */
 .photo-placeholder {
@@ -329,12 +337,15 @@ section {
    Services — tarjetas con ícono en círculo azul
    ========================================================================== */
 .service-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.4rem;
   margin-top: 2.2rem;
 }
 .service-card {
+  flex: 1 1 300px;
+  max-width: 340px;
   display: block;
   background: #fff;
   border: 1px solid var(--line);
@@ -371,7 +382,13 @@ section {
   gap: clamp(2rem, 5vw, 4rem);
   align-items: center;
 }
-.about-media .photo-placeholder { max-width: 320px; margin: 0 auto; }
+.about-media .about-photo-frame {
+  max-width: 320px;
+  margin: 0 auto;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
 .about-copy {
   background: #fff;
   border-left: 3px solid var(--blue);
@@ -382,13 +399,18 @@ section {
 .about-copy p:last-child { margin-bottom: 0; }
 
 /* ==========================================================================
-   Process — línea de tiempo
+   Process — línea de tiempo (compacta)
    ========================================================================== */
+.process {
+  padding-top: clamp(1.5rem, 4vw, 2.5rem);
+  padding-bottom: clamp(1rem, 3vw, 1.5rem);
+}
+
 .process-steps {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: clamp(1.5rem, 4vw, 3rem);
-  margin-top: 2.6rem;
+  margin-top: 1.8rem;
   position: relative;
 }
 .process-steps::before {
@@ -423,59 +445,59 @@ section {
 }
 
 /* ==========================================================================
-   Results — slider antes/después
+   Results — carrusel automático
    ========================================================================== */
+.results {
+  padding-top: clamp(1rem, 3vw, 1.5rem);
+}
 .results-sub { margin-top: -0.6rem; }
-.ba-slider {
-  position: relative;
+
+.results-carousel {
   margin-top: 2rem;
-  aspect-ratio: 16 / 10;
-  max-height: 560px;
-  border-radius: var(--radius-md);
   overflow: hidden;
-  cursor: ew-resize;
-  touch-action: pan-y;
-  user-select: none;
+  border-radius: var(--radius-md);
   border: 1px solid var(--line);
+  background: var(--paper-soft);
 }
-.ba-side { position: absolute; inset: 0; background-size: cover; background-position: center; }
-.ba-after { background: linear-gradient(160deg, #E7F1F7 0%, #C7DDEA 100%); }
-.ba-after::after, .ba-before::after {
-  content: attr(data-label);
-  position: absolute;
-  bottom: 0.9rem;
-  left: 0.9rem;
-  font-size: 0.7rem;
+.results-track {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+.results-slide {
+  flex: 0 0 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 9;
+}
+.results-slide-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.results-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.2rem;
+}
+.results-disclaimer {
+  margin-top: 0.8rem;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  opacity: 0.8;
+  max-width: none;
+  text-align: center;
+}
+.results-instagram {
+  display: block;
+  text-align: center;
+  margin: 1rem auto 0;
   font-weight: 700;
-  color: var(--ink-soft);
-  background: rgba(255,255,255,0.85);
-  padding: 0.35rem 0.6rem;
-  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  color: var(--blue-deep);
 }
-.ba-before { background: linear-gradient(160deg, #D8DEE1 0%, #AEB8BD 100%); }
-.ba-handle {
-  position: absolute; top: 0; bottom: 0; width: 3px;
-  background: var(--blue);
-  transform: translateX(-50%);
-  display: flex; align-items: center; justify-content: center;
-}
-.ba-handle-grip {
-  width: 44px; height: 44px; border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.18);
-  display: flex; align-items: center; justify-content: center;
-}
-.ba-handle-grip::before { content: "⟷"; font-size: 1.1rem; color: var(--blue-deep); }
-.ba-tag {
-  position: absolute; top: 0.9rem;
-  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.03em;
-  color: var(--ink-soft);
-  background: rgba(255,255,255,0.9);
-  padding: 0.3rem 0.6rem;
-  border-radius: var(--radius-sm);
-}
-.ba-tag-before { left: 0.9rem; }
-.ba-tag-after { right: 0.9rem; }
+.results-instagram:hover { color: var(--blue); text-decoration: underline; }
 
 /* ==========================================================================
    Testimonials — tarjeta clara con avatar azul
@@ -520,36 +542,8 @@ section {
 .dot.active { background: var(--blue); }
 
 /* ==========================================================================
-   Social — fila de redes tipo lista de contacto
+   Íconos de redes sociales (footer, contacto)
    ========================================================================== */
-.social-section { text-align: left; }
-.social-copy { max-width: 52ch; margin-bottom: 2rem; }
-.social-rows { display: flex; flex-direction: column; gap: 0.8rem; }
-.social-row {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  padding: 1rem 1.2rem;
-  transition: border-color 0.15s ease, transform 0.15s ease;
-}
-.social-row:hover { border-color: var(--blue); transform: translateX(2px); }
-.social-row-icon {
-  display: flex; align-items: center; justify-content: center;
-  width: 42px; height: 42px;
-  border-radius: 50%;
-  background: var(--blue-tint);
-  color: var(--blue-deep);
-  flex-shrink: 0;
-}
-.social-row-text { display: flex; flex-direction: column; gap: 0.1rem; flex: 1; }
-.social-row-text strong { color: var(--ink); font-size: 0.98rem; }
-.social-row-text span { font-size: 0.86rem; color: var(--ink-soft); }
-.social-row-arrow { color: var(--ink-soft); font-size: 1.1rem; }
-.social-row:hover .social-row-arrow { color: var(--blue-deep); }
-
 .social-icons { display: flex; gap: 0.6rem; }
 .social-icon-btn {
   display: flex; align-items: center; justify-content: center;
@@ -653,6 +647,6 @@ section {
   .footer-main { flex-direction: column; }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .header-cta { display: none; }
 }

@@ -1,7 +1,6 @@
 "use client";
 
 import { useLanguage } from "@/context/LanguageContext";
-import { PortraitAvatar } from "@/components/Illustrations";
 
 export default function About() {
   const { t } = useLanguage();
@@ -10,9 +9,8 @@ export default function About() {
     <section className="about" id="sobre-pao">
       <div className="about-inner">
         <div className="about-media">
-          {/* PENDIENTE: reemplazar por <img> real (retrato de Pao) */}
-          <div className="photo-placeholder photo-placeholder--portrait" data-label={t("about.photo_alt")}>
-            <PortraitAvatar />
+          <div className="about-photo-frame">
+            <img src="/pao-marble.jpg" alt={t("about.photo_alt")} className="real-photo" />
           </div>
         </div>
         <div className="about-copy">

@@ -18,7 +18,7 @@ export default function Footer() {
           </div>
           <div className="footer-social">
             <span className="contact-label">{t("footer.follow")}</span>
-            <SocialLinks variant="icons" />
+            <SocialLinks />
           </div>
         </div>
         <p className="footer-copy">

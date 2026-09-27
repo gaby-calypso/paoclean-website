@@ -14,7 +14,6 @@ export default function Header() {
     { href: "#servicios", label: t("nav.services") },
     { href: "#sobre-pao", label: t("nav.about") },
     { href: "#resultados", label: t("nav.results") },
-    { href: "#redes", label: t("nav.social") },
     { href: "#contacto", label: t("nav.contact") },
   ];
 

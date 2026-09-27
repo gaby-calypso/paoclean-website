@@ -6,6 +6,7 @@ export function HeroScene() {
     <svg viewBox="0 0 400 500" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
       <rect width="400" height="500" fill="#F1F6F8" />
       <rect x="0" y="330" width="400" height="170" fill="#E7F1F7" />
+      {/* ventana */}
       <rect x="240" y="60" width="120" height="150" rx="6" fill="#FFFFFF" stroke="#DCE6EA" strokeWidth="3" />
       <line x1="300" y1="60" x2="300" y2="210" stroke="#DCE6EA" strokeWidth="3" />
       <line x1="240" y1="135" x2="360" y2="135" stroke="#DCE6EA" strokeWidth="3" />
@@ -13,13 +14,16 @@ export function HeroScene() {
       <rect x="305" y="70" width="45" height="55" fill="#CFE3EF" />
       <rect x="250" y="145" width="45" height="55" fill="#CFE3EF" />
       <rect x="305" y="145" width="45" height="55" fill="#CFE3EF" />
+      {/* planta */}
       <rect x="40" y="250" width="46" height="60" rx="4" fill="#0E6BA8" />
       <path d="M63 250c-10-30-40-40-55-35 5 25 30 40 55 35Z" fill="#2E9E5B" />
       <path d="M63 250c10-35 45-45 62-38-6 28-35 45-62 38Z" fill="#2E9E5B" />
+      {/* silueta limpiando */}
       <circle cx="180" cy="260" r="26" fill="#094F7D" />
       <path d="M140 420c0-45 20-90 40-90s40 45 40 90Z" fill="#0E6BA8" />
       <path d="M120 340c15-25 40-30 60-15" stroke="#094F7D" strokeWidth="14" strokeLinecap="round" fill="none" />
       <circle cx="112" cy="335" r="9" fill="#F2A93B" />
+      {/* piso reflejando limpieza */}
       <rect x="0" y="470" width="400" height="4" fill="#0E6BA8" opacity="0.35" />
       <circle cx="330" cy="440" r="5" fill="#F2A93B" opacity="0.7" />
       <circle cx="350" cy="455" r="3" fill="#F2A93B" opacity="0.5" />
@@ -65,6 +69,38 @@ export function AfterScene() {
       <path d="M57 220c-8-22-30-28-40-25 4 18 22 28 40 25Z" fill="#2E9E5B" />
       <path d="M330 60 336 78 354 80 340 92 344 110 330 100 316 110 320 92 306 80 324 78Z" fill="#F2A93B" />
       <path d="M420 150 424 162 436 164 426 172 429 184 420 177 411 184 414 172 404 164 416 162Z" fill="#F2A93B" />
+    </svg>
+  );
+}
+
+// Diagrama simple azul/blanco para "Cómo trabajamos": mensaje → confirmación → limpieza
+export function ProcessDiagram() {
+  return (
+    <svg viewBox="0 0 280 200" width="100%" height="100%">
+      <line x1="60" y1="40" x2="60" y2="160" stroke="#DCE6EA" strokeWidth="2" strokeDasharray="5 6" />
+      <line x1="60" y1="100" x2="220" y2="100" stroke="#DCE6EA" strokeWidth="2" strokeDasharray="5 6" />
+      <line x1="220" y1="40" x2="220" y2="160" stroke="#DCE6EA" strokeWidth="2" strokeDasharray="5 6" />
+
+      {/* Nodo 1: mensaje */}
+      <circle cx="60" cy="40" r="28" fill="#0C4A93" />
+      <g transform="translate(48,29)" stroke="#fff" strokeWidth="1.6" fill="none" strokeLinejoin="round">
+        <rect x="0" y="0" width="24" height="17" rx="3" />
+        <path d="M2 2l10 8 10-8" />
+      </g>
+
+      {/* Nodo 2: confirmación */}
+      <circle cx="140" cy="100" r="28" fill="#0C4A93" />
+      <g transform="translate(128,88)" stroke="#fff" strokeWidth="1.6" fill="none" strokeLinejoin="round" strokeLinecap="round">
+        <rect x="0" y="2" width="24" height="20" rx="3" />
+        <path d="M0 8h24" />
+        <path d="M7 12l3 3 7-7" />
+      </g>
+
+      {/* Nodo 3: limpieza */}
+      <circle cx="220" cy="160" r="28" fill="#0C4A93" />
+      <g transform="translate(220,160)" fill="#fff">
+        <path d="M0-14 2-4 12-2 2 0 0 10-2 0-12-2-2-4Z" />
+      </g>
     </svg>
   );
 }

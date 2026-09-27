@@ -76,7 +76,6 @@ export default function Contact() {
             <a href={`mailto:${BUSINESS.email}`}>{BUSINESS.email}</a>
           </div>
           <div className="contact-detail">
-            {/* PENDIENTE: confirmar zonas exactas de cobertura */}
             <span className="contact-label">{t("contact.zone_label")}</span>
             <span>{t("contact.zone_value")}</span>
           </div>
@@ -89,7 +88,7 @@ export default function Contact() {
         <div className="contact-utility">
           <button className="link-btn" onClick={handleSave}>{t("contact.save")}</button>
           <button className="link-btn" onClick={handleShare}>{t("contact.share")}</button>
-          <SocialLinks variant="icons" />
+          <SocialLinks />
         </div>
       </div>
     </section>

@@ -1,6 +1,5 @@
 "use client";
 
-import { useLanguage } from "@/context/LanguageContext";
 import { SOCIALS } from "@/lib/business";
 
 const ICONS = {
@@ -23,46 +22,29 @@ const ICONS = {
   ),
 };
 
-export default function SocialLinks(props) {
-  var variant = props.variant || "rows";
-  var t = useLanguage().t;
+const LABELS = {
+  instagram: "Instagram",
+  facebook: "Facebook",
+  google: "Google Business",
+};
 
-  var items = [
-    { key: "instagram", href: SOCIALS.instagram, title: t("social.instagram"), sub: t("social.instagram_sub") },
-    { key: "facebook", href: SOCIALS.facebook, title: t("social.facebook"), sub: t("social.facebook_sub") },
-    { key: "google", href: SOCIALS.google, title: t("social.google"), sub: t("social.google_sub") },
-  ];
+export default function SocialLinks() {
+  const items = Object.entries(SOCIALS).filter(function (entry) {
+    var href = entry[1];
+    return href && href !== "#";
+  });
 
-  if (variant === "icons") {
-    return (
-      <div className="social-icons">
-        {items.map(function (item) {
-          return (
-            <a key={item.key} href={item.href} target="_blank" rel="noopener noreferrer" aria-label={item.title} className="social-icon-btn">
-              {ICONS[item.key]}
-            </a>
-          );
-        })}
-      </div>
-    );
+  if (items.length === 0) {
+    return null;
   }
 
   return (
-    <ul className="social-rows">
-      {items.map(function (item) {
-        return (
-          <li key={item.key}>
-            <a href={item.href} target="_blank" rel="noopener noreferrer" className="social-row">
-              <span className="social-row-icon">{ICONS[item.key]}</span>
-              <span className="social-row-text">
-                <strong>{item.title}</strong>
-                <span>{item.sub}</span>
-              </span>
-              <span className="social-row-arrow" aria-hidden="true">→</span>
-            </a>
-          </li>
-        );
+    <div className="social-icons">
+      {items.map(function (entry) {
+        var key = entry[0];
+        var href = entry[1];
+        return <a key={key} href={href} target="_blank" rel="noopener noreferrer" aria-label={LABELS[key] || key} className="social-icon-btn">{ICONS[key]}</a>;
       })}
-    </ul>
+    </div>
   );
 }
