@@ -14,21 +14,19 @@ export default function Header() {
     { href: "#servicios", label: t("nav.services") },
     { href: "#sobre-pao", label: t("nav.about") },
     { href: "#resultados", label: t("nav.results") },
+    { href: "#cotizar", label: t("nav.quote_short") },
+    { href: "#faq", label: t("nav.faq") },
     { href: "#contacto", label: t("nav.contact") },
   ];
 
   return (
     <header className={`site-header${navOpen ? " nav-open" : ""}`}>
       <div className="header-inner">
-        <a href="#top" className="brand">
-          {BUSINESS.name}
-        </a>
+        <a href="#top" className="brand">{BUSINESS.name}</a>
 
         <nav className="main-nav pill-nav">
           {navItems.map((item) => (
-            <a key={item.href} href={item.href} onClick={closeNav}>
-              {item.label}
-            </a>
+            <a key={item.href} href={item.href} onClick={closeNav}>{item.label}</a>
           ))}
         </nav>
 
@@ -36,12 +34,8 @@ export default function Header() {
           <button className="lang-toggle" onClick={toggleLang} aria-label="Cambiar idioma / Switch language">
             {lang === "es" ? "ES / EN" : "EN / ES"}
           </button>
-          <a className="btn btn-ghost header-call" href={`tel:+${BUSINESS.phoneE164}`}>
-            {t("nav.call")}
-          </a>
-          <a className="btn btn-primary header-cta" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-            {t("nav.quote")}
-          </a>
+          <a className="btn btn-ghost header-call" href={`tel:+${BUSINESS.phoneE164}`}>{t("nav.call")}</a>
+          <a className="btn btn-primary header-cta" href={whatsappUrl} target="_blank" rel="noopener noreferrer">{t("nav.quote")}</a>
         </div>
 
         <button

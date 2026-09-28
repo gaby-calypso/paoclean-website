@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
-import { isOpenNow, RATING } from "@/lib/business";
+import { isOpenNow, RATING, BUSINESS } from "@/lib/business";
 
 function Star() {
   return (
@@ -39,14 +39,10 @@ export default function Hero() {
           <p className="hero-sub">{t("hero.subtitle")}</p>
 
           <div className="hero-actions">
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg">
-              {t("hero.cta_primary")}
-            </a>
-            <a href="tel:+17869052246" className="btn btn-outline btn-lg">
-              {t("hero.cta_secondary")}
-            </a>
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg">{t("hero.cta_primary")}</a>
+            <a href={`tel:+${BUSINESS.phoneE164}`} className="btn btn-outline-light btn-lg">{t("hero.cta_secondary")}</a>
           </div>
-
+          <p className="hero-quote-link"><a href="#cotizar">{t("hero.quote_link")}</a></p>
           <p className="hero-microtrust">{t("hero.microtrust")}</p>
         </div>
 
@@ -65,9 +61,7 @@ export default function Hero() {
               <div className="rating-stars" aria-hidden="true">
                 <Star /><Star /><Star /><Star /><Star />
               </div>
-              <p className="rating-text">
-                {RATING.score} · {RATING.count} {t("hero.rating_reviews")}
-              </p>
+              <p className="rating-text">{RATING.score} · {RATING.count} {t("hero.rating_reviews")}</p>
             </div>
           </div>
         </div>

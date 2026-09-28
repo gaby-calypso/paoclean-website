@@ -19,15 +19,15 @@ const karla = Karla({
 });
 
 export const viewport = {
-  themeColor: "#0E6BA8",
+  themeColor: "#1D4ED8",
 };
 
 export const metadata = {
-  title: "PaoClean — Limpieza confiable en Miami",
+  title: "PaoClean — Limpieza profesional en Miami",
   description:
-    "PaoClean ofrece servicios de limpieza residencial, de oficinas y post-construcción en Miami. Confiabilidad, atención al detalle y trato personal.",
+    "PaoClean ofrece limpieza residencial, de oficinas, post-construcción y de mudanza en Miami. Cotiza en un minuto por WhatsApp.",
   openGraph: {
-    title: "PaoClean — Limpieza confiable en Miami",
+    title: "PaoClean — Limpieza profesional en Miami",
     description: "Limpieza residencial, de oficinas y post-construcción. Trato cercano, resultados que se notan.",
     type: "website",
     images: ["/og-image.jpg"],

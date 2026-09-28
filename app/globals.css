@@ -1,24 +1,24 @@
 /* ==========================================================================
    PaoClean — Design tokens
-   Tema completamente claro: azul de confianza + ámbar como único acento
-   de acción. Inspirado en Molly Maid / Merry Maids / The Cleaning Authority.
+   Paleta A: cobalto tono sobre tono. Bloques de color saturado + blanco.
+   Sin amarillo, sin rojo/coral, sin verde neón.
    ========================================================================== */
 :root {
   --ink: #14232E;
-  --ink-soft: #56636E;
+  --ink-soft: #54636E;
   --paper: #FFFFFF;
-  --paper-soft: #CFE0F3;
-  --blue: #0C4A93;
-  --blue-deep: #082F63;
-  --blue-tint: #E7F1F7;
-  --amber: #F2A93B;
-  --amber-deep: #D98F1E;
-  --line: #DCE6EA;
+  --paper-soft: #F3F6FC;
+  --blue: #1D4ED8;
+  --blue-deep: #14369B;
+  --blue-mid: #4B78E8;
+  --blue-tint: #E4ECFC;
+  --on-blue-soft: #C9D8FB;
+  --line: #DCE3F0;
 
   --max-w: 1320px;
   --gutter: clamp(1.25rem, 4vw, 4rem);
   --edge: max(var(--gutter), calc((100% - var(--max-w)) / 2));
-  --radius-sm: 4px;
+  --radius-sm: 6px;
   --radius-md: 12px;
 }
 
@@ -67,7 +67,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   color: var(--blue);
   margin-bottom: 0.9rem;
 }
-.eyebrow-light { color: var(--blue); }
+.eyebrow-light { color: var(--on-blue-soft); }
 
 section {
   padding: clamp(3.5rem, 8vw, 6.5rem) var(--edge);
@@ -83,24 +83,25 @@ section {
   gap: 0.5em;
   padding: 0.75rem 1.5rem;
   border-radius: var(--radius-sm);
+  font-family: var(--font-body);
   font-weight: 700;
   font-size: 0.95rem;
   border: 1.5px solid transparent;
   cursor: pointer;
-  transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+  transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
   white-space: nowrap;
 }
 .btn:hover { transform: translateY(-1px); }
 .btn:active { transform: translateY(0); }
 
-.btn-primary { background: var(--amber); color: #241804; }
-.btn-primary:hover { background: var(--amber-deep); }
+.btn-primary { background: var(--blue); color: #fff; }
+.btn-primary:hover { background: var(--blue-deep); }
 
 .btn-outline { background: transparent; color: var(--blue-deep); border-color: var(--blue-deep); }
 .btn-outline:hover { background: var(--blue-deep); color: #fff; }
 
-.btn-outline-light { background: transparent; color: var(--blue-deep); border-color: var(--blue); }
-.btn-outline-light:hover { background: var(--blue); color: #fff; }
+.btn-outline-light { background: transparent; color: #fff; border-color: rgba(255,255,255,0.75); }
+.btn-outline-light:hover { background: rgba(255,255,255,0.14); border-color: #fff; }
 
 .btn-ghost { background: transparent; color: var(--ink-soft); padding-left: 0.6rem; padding-right: 0.6rem; }
 .btn-ghost:hover { color: var(--ink); }
@@ -128,11 +129,10 @@ section {
   position: sticky;
   top: 0;
   z-index: 40;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
 }
-
 .header-inner {
   max-width: var(--max-w);
   margin: 0 auto;
@@ -141,15 +141,13 @@ section {
   align-items: center;
   gap: 1.5rem;
 }
-
 .brand {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   color: var(--blue-deep);
   margin-right: auto;
 }
-
 .pill-nav {
   display: flex;
   gap: 0.2rem;
@@ -167,13 +165,7 @@ section {
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 .pill-nav a:hover { background: #fff; color: var(--blue-deep); }
-
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
+.header-actions { display: flex; align-items: center; gap: 0.6rem; }
 .lang-toggle {
   background: transparent;
   border: 1.5px solid var(--line);
@@ -187,7 +179,6 @@ section {
   cursor: pointer;
 }
 .lang-toggle:hover { border-color: var(--blue); color: var(--blue-deep); }
-
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -200,13 +191,14 @@ section {
 .nav-toggle span { width: 22px; height: 2px; background: var(--ink); }
 
 /* ==========================================================================
-   Hero — foto grande + insignia de calificación superpuesta
+   Hero — bloque cobalto con cotizador
    ========================================================================== */
 .hero {
-  background: var(--paper-soft);
+  background: var(--blue);
+  color: #fff;
   max-width: none;
-  padding-top: clamp(3rem, 7vw, 5rem);
-  padding-bottom: clamp(3rem, 7vw, 5rem);
+  padding-top: clamp(2.5rem, 6vw, 4.5rem);
+  padding-bottom: clamp(2.5rem, 6vw, 4.5rem);
 }
 .hero-inner {
   max-width: var(--max-w);
@@ -216,59 +208,77 @@ section {
   gap: clamp(2rem, 5vw, 4rem);
   align-items: center;
 }
-
-.hero-sub { font-size: 1.08rem; max-width: 46ch; }
-.hero-microtrust { font-size: 0.85rem; color: var(--ink-soft); max-width: none; }
+.hero h1 { color: #fff; }
+.hero-sub { font-size: 1.08rem; max-width: 46ch; color: var(--on-blue-soft); }
 
 .eyebrow-status {
   display: inline-flex;
   align-items: center;
   gap: 0.5em;
-  background: #fff;
-  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.3);
   border-radius: 999px;
   padding: 0.4rem 0.9rem 0.4rem 0.7rem;
   font-size: 0.82rem;
   font-weight: 600;
-  color: var(--ink-soft);
+  color: #fff;
   margin-bottom: 1.4rem;
 }
-.status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--line); flex-shrink: 0; }
-.eyebrow-status[data-open="true"] .status-dot { background: #2E9E5B; }
-.eyebrow-status[data-open="false"] .status-dot { background: var(--amber-deep); }
+.status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--on-blue-soft); flex-shrink: 0; }
+.eyebrow-status[data-open="true"] .status-dot { background: #7EE0A4; }
 
-.hero-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; margin: 1.6rem 0 1rem; }
+.quote {
+  background: #fff;
+  color: var(--ink);
+  border-radius: var(--radius-md);
+  padding: 1.1rem;
+  margin: 1.4rem 0 0.9rem;
+  max-width: 540px;
+}
+.quote-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: var(--blue-deep);
+  margin: 0 0 0.8rem;
+}
+.quote-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; margin-bottom: 0.9rem; }
+.quote label { display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.78rem; font-weight: 700; color: var(--ink-soft); }
+.quote select {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--ink);
+  padding: 0.6rem 0.7rem;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: #fff;
+}
+.quote select:focus { outline: 2px solid var(--blue); outline-offset: 1px; }
+.quote .btn { width: 100%; }
+@media (max-width: 520px) { .quote-fields { grid-template-columns: 1fr; } }
+
+.hero-call { margin: 0 0 0.4rem; }
+.hero-call a { color: #fff; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.hero-microtrust { font-size: 0.85rem; color: var(--on-blue-soft); max-width: none; }
 
 .hero-media { position: relative; }
+.hero-photo-frame { aspect-ratio: 5 / 4; border-radius: var(--radius-md); overflow: hidden; }
+.real-photo { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-.hero-photo-frame {
-  aspect-ratio: 5 / 4;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-}
-
-.real-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.profile-badge-photo .real-photo { object-position: top center; }
-
-/* Insignia de calificación superpuesta sobre la foto */
 .rating-badge {
   position: absolute;
   left: 1rem;
   right: 1rem;
   bottom: 1rem;
   background: #fff;
+  color: var(--ink);
   border-radius: var(--radius-md);
   padding: 0.9rem 1.1rem;
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  box-shadow: 0 16px 32px -12px rgba(20, 35, 46, 0.28);
+  box-shadow: 0 16px 32px -12px rgba(20, 35, 46, 0.35);
 }
 .rating-badge-icon {
   width: 42px; height: 42px;
@@ -281,68 +291,30 @@ section {
 .rating-stars { display: flex; gap: 2px; color: var(--blue); margin-bottom: 0.2rem; }
 .rating-text { font-weight: 700; font-size: 0.92rem; color: var(--ink); margin: 0; }
 
-/* Photo placeholders (quitar cuando haya fotos reales) ------------------- */
-.photo-placeholder {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 200px;
-  background:
-    repeating-linear-gradient(135deg, rgba(255,255,255,0.08) 0 2px, transparent 2px 14px),
-    linear-gradient(160deg, var(--blue) 0%, var(--blue-deep) 100%);
-  color: rgba(255,255,255,0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-md);
-}
-.photo-placeholder::after {
-  content: attr(data-label);
-  position: absolute;
-  bottom: 0.7rem;
-  left: 0.7rem;
-  right: 0.7rem;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: rgba(255,255,255,0.9);
-  background: rgba(0,0,0,0.3);
-  padding: 0.35rem 0.55rem;
-  border-radius: var(--radius-sm);
-}
-.photo-placeholder--portrait { aspect-ratio: 4/5; border-radius: var(--radius-md); }
-.photo-placeholder--avatar { min-height: 0; }
-
 /* ==========================================================================
-   Trust strip
+   Trust strip — banda cobalto profundo
    ========================================================================== */
 .trust-strip {
   max-width: none;
-  background: #fff;
-  padding: 2rem var(--edge);
+  background: var(--blue-deep);
+  color: #fff;
+  padding: 1.8rem var(--edge);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: clamp(1.2rem, 4vw, 3rem);
   flex-wrap: wrap;
-  border-bottom: 1px solid var(--line);
 }
 .trust-item { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.2rem; }
-.trust-item strong { font-family: var(--font-display); font-size: 1.4rem; color: var(--blue-deep); }
-.trust-item span { font-size: 0.85rem; color: var(--ink-soft); }
-.trust-divider { width: 1px; height: 32px; background: var(--line); }
+.trust-item strong { font-family: var(--font-display); font-size: 1.4rem; color: #fff; }
+.trust-item span { font-size: 0.85rem; color: var(--on-blue-soft); }
+.trust-divider { width: 1px; height: 32px; background: rgba(255,255,255,0.25); }
 @media (max-width: 640px) { .trust-divider { display: none; } }
 
 /* ==========================================================================
-   Services — tarjetas con ícono en círculo azul
+   Services
    ========================================================================== */
-.service-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.4rem;
-  margin-top: 2.2rem;
-}
+.service-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.4rem; margin-top: 2.2rem; }
 .service-card {
   flex: 1 1 300px;
   max-width: 340px;
@@ -353,27 +325,24 @@ section {
   padding: 1.6rem;
   transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 }
-.service-card:hover { transform: translateY(-3px); border-color: var(--blue); box-shadow: 0 12px 24px -14px rgba(14,107,168,0.35); }
+.service-card:hover { transform: translateY(-3px); border-color: var(--blue); box-shadow: 0 14px 26px -16px rgba(29,78,216,0.45); }
 .service-card-icon {
   display: flex; align-items: center; justify-content: center;
-  width: 44px; height: 44px;
+  width: 46px; height: 46px;
   border-radius: 50%;
-  background: var(--blue-tint);
-  color: var(--blue-deep);
+  background: var(--blue);
+  color: #fff;
   margin-bottom: 1rem;
 }
 .service-card h3 { margin-bottom: 0.4rem; }
 .service-card p { font-size: 0.94rem; margin-bottom: 1rem; }
-.service-card-cta { font-weight: 700; font-size: 0.86rem; color: var(--blue-deep); }
-.service-card:hover .service-card-cta { color: var(--amber-deep); }
+.service-card-cta { font-weight: 700; font-size: 0.86rem; color: var(--blue); }
+.service-card:hover .service-card-cta { color: var(--blue-deep); }
 
 /* ==========================================================================
-   About — sección clara, tarjeta con acento azul
+   About
    ========================================================================== */
-.about {
-  background: var(--paper-soft);
-  max-width: none;
-}
+.about { background: var(--paper-soft); max-width: none; }
 .about-inner {
   max-width: var(--max-w);
   margin: 0 auto;
@@ -391,7 +360,7 @@ section {
 }
 .about-copy {
   background: #fff;
-  border-left: 3px solid var(--blue);
+  border-left: 4px solid var(--blue);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
   padding: clamp(1.5rem, 3vw, 2.2rem);
 }
@@ -399,13 +368,9 @@ section {
 .about-copy p:last-child { margin-bottom: 0; }
 
 /* ==========================================================================
-   Process — línea de tiempo (compacta)
+   Process
    ========================================================================== */
-.process {
-  padding-top: clamp(1.5rem, 4vw, 2.5rem);
-  padding-bottom: clamp(1rem, 3vw, 1.5rem);
-}
-
+.process { padding-top: clamp(2rem, 5vw, 3rem); padding-bottom: clamp(1rem, 3vw, 1.5rem); }
 .process-steps {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -413,15 +378,7 @@ section {
   margin-top: 1.8rem;
   position: relative;
 }
-.process-steps::before {
-  content: "";
-  position: absolute;
-  top: 22px;
-  left: 10%;
-  right: 10%;
-  height: 1px;
-  background: var(--line);
-}
+.process-steps::before { content: ""; position: absolute; top: 22px; left: 10%; right: 10%; height: 1px; background: var(--line); }
 .step-n {
   position: relative;
   z-index: 1;
@@ -447,11 +404,8 @@ section {
 /* ==========================================================================
    Results — carrusel automático
    ========================================================================== */
-.results {
-  padding-top: clamp(1rem, 3vw, 1.5rem);
-}
+.results { padding-top: clamp(1rem, 3vw, 1.5rem); }
 .results-sub { margin-top: -0.6rem; }
-
 .results-carousel {
   margin-top: 2rem;
   overflow: hidden;
@@ -459,56 +413,25 @@ section {
   border: 1px solid var(--line);
   background: var(--paper-soft);
 }
-.results-track {
-  display: flex;
-  transition: transform 0.6s ease;
-}
-.results-slide {
-  flex: 0 0 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  aspect-ratio: 16 / 9;
-}
-.results-slide-img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-.results-dots {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1.2rem;
-}
-.results-disclaimer {
-  margin-top: 0.8rem;
-  font-size: 0.78rem;
-  color: var(--ink-soft);
-  opacity: 0.8;
-  max-width: none;
-  text-align: center;
-}
-.results-instagram {
-  display: block;
-  text-align: center;
-  margin: 1rem auto 0;
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--blue-deep);
-}
-.results-instagram:hover { color: var(--blue); text-decoration: underline; }
+.results-track { display: flex; transition: transform 0.6s ease; }
+.results-slide { flex: 0 0 100%; display: flex; align-items: center; justify-content: center; aspect-ratio: 16 / 9; }
+.results-slide-img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.results-dots { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1.2rem; }
+.results-disclaimer { margin-top: 0.8rem; font-size: 0.78rem; color: var(--ink-soft); max-width: none; text-align: center; }
+.results-instagram { display: block; text-align: center; margin: 1rem auto 0; font-weight: 700; font-size: 0.95rem; color: var(--blue); }
+.results-instagram:hover { color: var(--blue-deep); text-decoration: underline; }
 
 /* ==========================================================================
-   Testimonials — tarjeta clara con avatar azul
+   Testimonials — bloque cobalto
    ========================================================================== */
-.testimonials { background: var(--paper-soft); max-width: none; }
+.testimonials { background: var(--blue); max-width: none; }
+.testimonials .eyebrow { color: var(--on-blue-soft); }
+.testimonials h2 { color: #fff; }
 .testimonial-spotlight {
   max-width: var(--max-w);
   margin: 1.5rem auto 0;
   padding: clamp(1.8rem, 4vw, 3rem);
   background: #fff;
-  border: 1px solid var(--line);
   border-radius: var(--radius-md);
   animation: testimonialFade 0.4s ease both;
 }
@@ -540,9 +463,47 @@ section {
 .testimonial-dots { display: flex; gap: 0.5rem; margin: 1.2rem auto 0; max-width: var(--max-w); }
 .dot { width: 8px; height: 8px; border-radius: 50%; border: none; background: var(--line); cursor: pointer; padding: 0; }
 .dot.active { background: var(--blue); }
+.testimonials .dot { background: rgba(255,255,255,0.4); }
+.testimonials .dot.active { background: #fff; }
 
 /* ==========================================================================
-   Íconos de redes sociales (footer, contacto)
+   Area — zona de cobertura
+   ========================================================================== */
+.area-list { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.4rem 0; }
+.area-list li {
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  background: var(--blue-tint);
+  border: 1px solid var(--line);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--blue-deep);
+}
+.area-link { font-weight: 700; color: var(--blue); }
+.area-link:hover { color: var(--blue-deep); text-decoration: underline; }
+
+/* ==========================================================================
+   FAQ
+   ========================================================================== */
+.faq { background: var(--paper-soft); max-width: none; }
+.faq-list { max-width: 820px; margin-top: 1.5rem; }
+.faq-item { border-bottom: 1px solid var(--line); padding: 1.1rem 0; }
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--ink);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: "+"; color: var(--blue); font-size: 1.3rem; line-height: 1; }
+.faq-item[open] summary::after { content: "–"; }
+.faq-item p { margin: 0.7rem 0 0; }
+
+/* ==========================================================================
+   Íconos de redes sociales
    ========================================================================== */
 .social-icons { display: flex; gap: 0.6rem; }
 .social-icon-btn {
@@ -556,51 +517,64 @@ section {
 .social-icon-btn:hover { background: var(--blue-tint); border-color: var(--blue); }
 
 /* ==========================================================================
-   Contact / CTA final — banda azul suave, no oscura
+   Contact — tarjeta cobalto profundo, botones blancos
    ========================================================================== */
 .contact {
-  background: var(--blue-tint);
+  background: var(--blue-deep);
+  color: #fff;
   border-radius: var(--radius-md);
   max-width: var(--max-w);
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 2rem;
 }
-.contact-sub { color: var(--ink-soft); max-width: 50ch; }
+.contact h2 { color: #fff; }
+.contact .eyebrow { color: var(--on-blue-soft); }
+.contact-sub { color: var(--on-blue-soft); max-width: 50ch; }
 .contact-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; margin: 1.6rem 0 2.2rem; }
+.contact .btn-primary { background: #fff; color: var(--blue-deep); }
+.contact .btn-primary:hover { background: var(--blue-tint); }
 .contact-details {
   display: flex; flex-wrap: wrap; gap: 2rem 3rem;
   padding-top: 1.6rem;
-  border-top: 1px solid rgba(14,107,168,0.15);
+  border-top: 1px solid rgba(255,255,255,0.22);
 }
 .contact-detail { display: flex; flex-direction: column; gap: 0.3rem; }
-.contact-label { font-size: 0.78rem; font-weight: 700; color: var(--blue-deep); }
-.contact-detail a { font-weight: 600; color: var(--ink); }
+.contact-label { font-size: 0.78rem; font-weight: 700; color: var(--on-blue-soft); }
+.contact-detail a { font-weight: 600; color: #fff; }
 .contact-detail a:hover { text-decoration: underline; }
-.contact-utility {
-  display: flex; align-items: center; flex-wrap: wrap;
-  gap: 1.4rem;
-  margin-top: 2rem;
-}
-.contact-utility .link-btn { color: var(--ink-soft); }
-.contact-utility .social-icon-btn { background: #fff; }
+.contact-utility { display: flex; align-items: center; flex-wrap: wrap; gap: 1.4rem; margin-top: 2rem; }
+.contact .link-btn { color: var(--on-blue-soft); }
+.contact .link-btn:hover { color: #fff; }
+.contact .social-icon-btn { border-color: rgba(255,255,255,0.4); color: #fff; }
+.contact .social-icon-btn:hover { background: rgba(255,255,255,0.14); border-color: #fff; }
 
 /* ==========================================================================
    Footer
    ========================================================================== */
 .site-footer { background: #fff; padding: 2.8rem var(--edge) 2.2rem; border-top: 1px solid var(--line); }
 .footer-inner { max-width: var(--max-w); margin: 0 auto; text-align: left; }
-.footer-main {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 1.5rem 3rem;
-}
+.footer-main { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1.5rem 3rem; }
 .brand-footer { display: block; font-family: var(--font-display); font-size: 1.1rem; color: var(--blue-deep); margin-bottom: 0.4rem; }
 .footer-main p { color: var(--ink-soft); margin: 0; max-width: 40ch; }
 .footer-social { display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-start; }
 .footer-social .contact-label { color: var(--blue-deep); }
 .footer-copy { font-size: 0.82rem; color: var(--ink-soft); margin: 2rem 0 0; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+
+/* ==========================================================================
+   Barra fija en celular (llamar / WhatsApp)
+   ========================================================================== */
+.mobile-bar {
+  display: none;
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 50;
+  background: #fff;
+  border-top: 1px solid var(--line);
+  padding: 0.6rem var(--gutter) calc(0.6rem + env(safe-area-inset-bottom));
+  gap: 0.6rem;
+}
+.mobile-bar .btn { flex: 1; }
 
 /* ==========================================================================
    Toast
@@ -628,7 +602,6 @@ section {
   .header-call { display: none; }
 
   .hero-inner { grid-template-columns: 1fr; }
-  .hero-media { order: -1; }
   .about-inner { grid-template-columns: 1fr; }
 
   .site-header.nav-open .pill-nav {
@@ -645,8 +618,91 @@ section {
     gap: 0.2rem;
   }
   .footer-main { flex-direction: column; }
+
+  .mobile-bar { display: flex; }
+  .site-footer { padding-bottom: 5.5rem; }
+  .toast { bottom: 5rem; }
 }
 
 @media (max-width: 640px) {
   .header-cta { display: none; }
 }
+
+
+/* Aviso de vista previa del formulario */
+.form-preview {
+  display: inline-block;
+  background: var(--blue-tint);
+  color: var(--blue-deep);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  margin: 0 0 0.8rem;
+  max-width: none;
+}
+.form-msg.info { color: var(--blue-deep); }
+
+
+/* ==========================================================================
+   Hero: botones y enlace a la cotización
+   ========================================================================== */
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; margin: 1.6rem 0 0.9rem; }
+.hero .btn-primary { background: #fff; color: var(--blue-deep); }
+.hero .btn-primary:hover { background: var(--blue-tint); }
+.hero-quote-link { margin: 0 0 0.6rem; }
+.hero-quote-link a { color: #fff; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+
+/* ==========================================================================
+   Sección de cotización (formulario completo)
+   ========================================================================== */
+.quote-section { background: var(--paper-soft); max-width: none; }
+.lead-card {
+  max-width: 920px;
+  margin-top: 1.6rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: clamp(1.2rem, 3vw, 2rem);
+}
+.lead-group { border: none; padding: 0; margin: 0 0 1.6rem; min-width: 0; }
+.lead-group legend {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.15rem;
+  color: var(--blue-deep);
+  padding: 0;
+  margin-bottom: 0.9rem;
+}
+.lead-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+@media (max-width: 640px) { .lead-grid { grid-template-columns: 1fr; } }
+.lead-card label { display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.8rem; font-weight: 700; color: var(--ink-soft); }
+.lead-card label.full { grid-column: 1 / -1; }
+.lead-card input[type="text"],
+.lead-card input[type="tel"],
+.lead-card input[type="email"],
+.lead-card input[type="date"],
+.lead-card select,
+.lead-card textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink);
+  padding: 0.65rem 0.75rem;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: #fff;
+}
+.lead-card textarea { min-height: 96px; resize: vertical; }
+.lead-card input:focus,
+.lead-card select:focus,
+.lead-card textarea:focus { outline: 2px solid var(--blue); outline-offset: 1px; }
+.lead-card .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.lead-card label.consent { flex-direction: row; align-items: flex-start; gap: 0.5rem; font-weight: 500; font-size: 0.85rem; margin: 0.4rem 0 1rem; color: var(--ink); }
+.lead-card label.consent input { margin-top: 0.2rem; accent-color: var(--blue); }
+.lead-card .btn { min-width: 260px; }
+@media (max-width: 640px) { .lead-card .btn { width: 100%; min-width: 0; } }
+.lead-sent { text-align: left; }
+.lead-thanks { font-family: var(--font-display); font-size: 1.3rem; color: var(--blue-deep); margin: 0 0 0.4rem; max-width: none; }
+.lead-sent p { max-width: none; }
