@@ -1,0 +1,254 @@
+{
+  "meta": {
+    "title": "PaoClean | Professional Home & Office Cleaning in Miami",
+    "description": "House, deep, office, post-construction and move-out cleaning in Miami and Miami-Dade. Free quotes and appointments by WhatsApp or online.",
+    "ogAlt": "PaoClean team cleaning a building lobby in Miami"
+  },
+  "common": {
+    "callLabel": "Call now",
+    "call": "Call",
+    "whatsapp": "WhatsApp",
+    "writeWhatsapp": "Message us on WhatsApp",
+    "freeQuote": "Get a free quote",
+    "seeService": "See service",
+    "skipToContent": "Skip to content",
+    "switchLanguage": "Cambiar a español",
+    "switchLanguageShort": "ES",
+    "whatsappMessage": "Hi, I'd like to get a cleaning quote.",
+    "floatingWhatsapp": "Message PaoClean on WhatsApp",
+    "exampleBadge": "Sample",
+    "demoPhotoNotice": "Illustrative preview photos. They will be replaced with PaoClean's real work before launch.",
+    "inAction": "In action",
+    "before": "Before",
+    "after": "After",
+    "compareLabel": "Compare before and after",
+    "ratingSuffix": "Happy clients in Miami",
+    "yearsOne": "year cleaning homes and businesses in Miami",
+    "yearsMany": "years cleaning homes and businesses in Miami",
+    "coverageCheck": "Serving all of Miami-Dade · Same-day reply"
+  },
+  "header": {
+    "tagline": "Professional cleaning · Miami",
+    "home": "PaoClean, go to home",
+    "nav": {
+      "services": "Services",
+      "about": "About",
+      "coverage": "Service area",
+      "contact": "Contact"
+    },
+    "menu": "Menu",
+    "closeMenu": "Close menu"
+  },
+  "trust": ["Local business, direct contact", "Clear pricing before we start", "Same-day reply"],
+  "home": {
+    "hero": {
+      "titleBefore": "",
+      "highlight": "Professional",
+      "titleAfter": "Cleaning in Miami",
+      "intro": "Homes, offices and newly remodeled spaces, clean and ready to use. A local business that takes care of every corner and confirms the price before we start.",
+      "chips": ["Free quote", "English and Spanish", "Local business"],
+      "imageAlt": "Two PaoClean team members polishing the floor and cleaning the glass in a building lobby"
+    },
+    "trustHighlight": "Homes, offices and construction sites",
+    "services": {
+      "eyebrow": "Our services",
+      "title": "Everything we clean for you",
+      "intro": "Choose the service you need. Each one comes with a free quote and results you can see.",
+      "extras": [
+        "Patios and terraces",
+        "Retail stores",
+        "Building common areas",
+        "Medical offices",
+        "Recurring cleaning"
+      ]
+    },
+    "about": {
+      "eyebrow": "About us",
+      "title": "A local Miami business",
+      "body": "PaoClean was created to make coming home to a clean space simple. The owner coordinates every job, so you always know who you're talking to and who stands behind the result.",
+      "bullets": [
+        { "strong": "Direct contact", "text": "with the owner, no middlemen." },
+        { "strong": "Clear pricing", "text": "confirmed before every service." },
+        { "strong": "English and Spanish", "text": "on WhatsApp or by phone." }
+      ],
+      "imageAlt": "PaoClean team member cleaning marble columns in a home"
+    },
+    "why": {
+      "eyebrow": "Why choose us",
+      "title": "The PaoClean difference",
+      "items": [
+        {
+          "icon": "users",
+          "title": "Local business",
+          "body": "We know Miami and serve our community in English and Spanish."
+        },
+        {
+          "icon": "heart",
+          "title": "Personal attention",
+          "body": "We listen to what you need and tailor the clean to your space."
+        },
+        {
+          "icon": "tag",
+          "title": "Clear pricing",
+          "body": "We confirm price, date and time before you agree."
+        },
+        {
+          "icon": "list",
+          "title": "Room-by-room checklist",
+          "body": "The same task list on every visit so no detail is missed."
+        }
+      ]
+    },
+    "faq": [
+      {
+        "q": "What cleaning services do you offer?",
+        "a": "House, deep, office and retail, post-construction and move-in/move-out cleaning. We also clean patios, terraces and common areas."
+      },
+      {
+        "q": "What areas do you serve?",
+        "a": "Miami and the main cities of Miami-Dade County. If you don't see your area, message us."
+      },
+      { "q": "Is the quote free?", "a": "Yes. Quotes are free with no obligation." },
+      {
+        "q": "Can I book an appointment on the website?",
+        "a": "Yes. In the form, choose the service, date and time you prefer, and we'll confirm by WhatsApp or phone."
+      },
+      {
+        "q": "Do you reply the same day?",
+        "a": "We reply the same day. The service date depends on availability."
+      }
+    ],
+    "finalCta": {
+      "title": "A cleaner space, starting today",
+      "body": "Message us and we'll reply the same day with price and availability."
+    }
+  },
+  "service": {
+    "galleryEyebrow": "See our work",
+    "whyEyebrow": "Why choose us",
+    "detailEyebrow": "Our service",
+    "processEyebrow": "Quick and easy",
+    "processTitle": "How it works",
+    "breadcrumbHome": "Home",
+    "otherServices": "Other services"
+  },
+  "testimonials": {
+    "eyebrow": "What our clients say",
+    "title": "Miami trusts us",
+    "ratingSummary": "rating",
+    "items": [
+      {
+        "quote": "Sample text: a real review from a house cleaning client will go here.",
+        "name": "Client name",
+        "city": "Brickell, FL"
+      },
+      {
+        "quote": "Sample text: a real review from an office client will go here.",
+        "name": "Client name",
+        "city": "Doral, FL"
+      },
+      {
+        "quote": "Sample text: a real review from a post-construction client will go here.",
+        "name": "Client name",
+        "city": "Coral Gables, FL"
+      }
+    ]
+  },
+  "coverage": {
+    "eyebrow": "Where we work",
+    "title": "Serving all of Miami-Dade",
+    "intro": "We come to your home or business anywhere in the Miami metro area. Don't see your area? Message us.",
+    "mapTitle": "Map of PaoClean's service area in Miami"
+  },
+  "quote": {
+    "eyebrow": "Free estimate",
+    "title": "Get a quote or book an appointment",
+    "intro": "Leave your details and we'll reply by WhatsApp or phone. If you pick a date and time, we'll confirm your appointment.",
+    "benefits": ["Same-day reply", "Clear pricing before we start", "Service in English and Spanish"],
+    "orCall": "Or call us directly at",
+    "bookOnline": "See available times and book online",
+    "bookingTitle": "Book your appointment online",
+    "close": "Close",
+    "fields": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "phone": "Phone / WhatsApp",
+      "phonePlaceholder": "(305) 000-0000",
+      "service": "What do you need?",
+      "other": "Other service",
+      "date": "Preferred date (optional)",
+      "time": "Preferred time",
+      "timeOptions": { "any": "Any time", "morning": "Morning (8–12)", "afternoon": "Afternoon (12–6)" },
+      "consent": "I agree that PaoClean may contact me by phone, text or WhatsApp about my request, as described in the",
+      "consentLink": "privacy policy",
+      "website": "Leave this field empty"
+    },
+    "submit": "Send via WhatsApp",
+    "sending": "Sending…",
+    "errors": {
+      "name": "Please enter your name.",
+      "phone": "Please enter a valid phone number with at least 10 digits.",
+      "service": "Please choose a service.",
+      "date": "Please choose today or a later date.",
+      "consent": "We need your permission to contact you.",
+      "server": "We couldn't log your request. Please message us on WhatsApp or give us a call."
+    },
+    "success": "Thank you! We opened WhatsApp with your message ready. If it didn't open, tap the button below.",
+    "successCta": "Open WhatsApp",
+    "whatsappQuote": "Hi, I'm {name}. I'd like a quote for: {service}. My phone is {phone}.",
+    "whatsappBooking": "Hi, I'm {name}. I'd like to book: {service} on {date} ({time}). My phone is {phone}."
+  },
+  "faq": {
+    "eyebrow": "Frequently asked questions",
+    "title": "Questions before you call"
+  },
+  "contact": {
+    "whatsappDirect": "WhatsApp us",
+    "locationValue": "Miami-Dade, Florida",
+    "hoursValue": "Mon–Fri · 8 AM–6 PM · Sat · 9 AM–2 PM"
+  },
+  "footer": {
+    "about": "Residential and commercial cleaning in Miami. A local business with direct contact and clear pricing.",
+    "servicesTitle": "Services",
+    "contactTitle": "Contact",
+    "followTitle": "Follow us",
+    "privacy": "Privacy policy",
+    "rights": "All rights reserved."
+  },
+  "privacy": {
+    "title": "Privacy policy",
+    "draftNotice": "Draft pending legal review by PaoClean.",
+    "updated": "Last updated: October 2026",
+    "back": "Back to home",
+    "sections": [
+      {
+        "title": "Who is responsible for your data",
+        "body": "PaoClean, based in Miami, Florida, is responsible for the personal information you share with us through this website."
+      },
+      {
+        "title": "What we collect",
+        "body": "Your name, phone number, the service you're interested in and, if you provide them, your preferred appointment date and time, when you fill out the form or contact us by WhatsApp, phone or email."
+      },
+      {
+        "title": "How we use it",
+        "body": "Only to answer your request, send you a quote and schedule the service. We do not sell or rent your information."
+      },
+      {
+        "title": "Messages and calls",
+        "body": "By submitting the form, you allow us to contact you by phone, text message or WhatsApp about your request. You can ask us to stop contacting you at any time."
+      },
+      {
+        "title": "Who we share it with",
+        "body": "Only with the services we use to receive and organize requests and appointments, such as our email, scheduling or customer management provider, and when required by law."
+      },
+      {
+        "title": "Your rights",
+        "body": "You can ask us to access, correct or delete your information by emailing us. We will reply within a reasonable time."
+      },
+      {
+        "title": "Contact",
+        "body": "For any questions about this policy, email us at the address shown at the bottom of this page."
+      }
+    ]
+  }
+}
